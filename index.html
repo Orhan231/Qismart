@@ -33,3 +33,30 @@ function submitApplication(product){
     "Name: " + name + "<br>" +
     "Mobile: " + phone;
 }
+
+  document.getElementById("applicationMessage").innerHTML =
+    "Application for <b>" + product + "</b> start ho gayi hai.<br><br>" +
+    "<input id='appName' placeholder='Apna naam likhein'>" +
+    "<input id='appPhone' placeholder='Mobile number'>" +
+    "<button class='btn' onclick='submitApplication(\"" + product + "\")'>Submit Application</button>";
+  
+  document.getElementById("dashboard").scrollIntoView({
+    behavior:"smooth"
+  });
+}
+
+function submitApplication(product){
+  const name = document.getElementById("appName").value.trim();
+  const phone = document.getElementById("appPhone").value.trim();
+
+  if(name === "" || phone === ""){
+    alert("Naam aur mobile number zaroor likhein.");
+    return;
+  }
+
+  document.getElementById("applicationMessage").innerHTML =
+    "✅ Application submit ho gayi!<br>" +
+    "Product: " + product + "<br>" +
+    "Name: " + name + "<br>" +
+    "Mobile: " + phone;
+}
